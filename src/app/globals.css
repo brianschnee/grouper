@@ -3,25 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  --bg-300: hsl(211, 53%, 10%);
+  --bg-200: hsl(211, 53%, 20%);
+  --bg-100: hsl(211, 53%, 30%);
+  --primary: hsl(75, 6%, 95%);
+  --secondary: hsl(75, 6%, 85%);
+  --tertiary: hsl(75, 6%, 70%);
+  --accent: hsl(211, 53%, 70%);
 }
