@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --bg-300: hsl(211, 53%, 10%);
-  --bg-200: hsl(211, 53%, 20%);
-  --bg-100: hsl(211, 53%, 30%);
-  --primary: hsl(75, 6%, 95%);
-  --secondary: hsl(75, 6%, 85%);
-  --tertiary: hsl(75, 6%, 70%);
-  --accent: hsl(211, 53%, 70%);
+	--bg-300: hsl(211, 53%, 10%);
+	--bg-200: hsl(211, 53%, 20%);
+	--bg-100: hsl(211, 53%, 30%);
+	--primary: hsl(75, 6%, 95%);
+	--secondary: hsl(75, 6%, 85%);
+	--tertiary: hsl(75, 6%, 70%);
+	--accent: hsl(211, 53%, 70%);
 }
