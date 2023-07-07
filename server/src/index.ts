@@ -13,7 +13,7 @@ app.register(fastifyIO)
 
 app.ready().then(() => {
 	app.io.on('connection', (socket) => {
-		console.log('connected')
+		socket.emit('connected')
 	})
 })
 
@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 
 const start = () => {
 	try {
-		app.listen({ port: 3000 })
+		app.listen({ port: 4000 })
 	} catch (e) {
 		app.log.error(e)
 		process.exit(1)
