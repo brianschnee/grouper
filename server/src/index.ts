@@ -1,33 +1,20 @@
-import fastify from 'fastify'
-import fastifyIO from 'fastify-socket.io'
+import express from 'express'
+import http from 'http'
+const app = express()
+const server = http.createServer(app)
 
-const app = fastify({
-	logger: {
-		transport: {
-			target: 'pino-pretty',
-		},
+import { Server } from 'socket.io'
+const io = new Server(server, {
+	cors: {
+		origin: '*',
 	},
 })
 
-app.register(fastifyIO)
-
-app.ready().then(() => {
-	app.io.on('connection', (socket) => {
-		socket.emit('connected')
-	})
+io.on('connection', (socket) => {
+	console.log('Connected!', socket.id)
+	socket.emit('connected')
 })
 
-app.get('/', (req, res) => {
-	return { hello: 'world ' }
+server.listen(4000, () => {
+	console.log('Server running on http://localhost:4000/')
 })
-
-const start = () => {
-	try {
-		app.listen({ port: 4000 })
-	} catch (e) {
-		app.log.error(e)
-		process.exit(1)
-	}
-}
-
-start()
