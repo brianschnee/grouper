@@ -1,10 +1,20 @@
 import express from 'express'
+import http from 'http'
 const app = express()
+const server = http.createServer(app)
 
-app.get('/', (req, res) => {
-	res.send({ hello: 'world' })
+import { Server } from 'socket.io'
+const io = new Server(server, {
+	cors: {
+		origin: '*',
+	},
 })
 
-app.listen(4000, () => {
+io.on('connection', (socket) => {
+	console.log('Connected!', socket.id)
+	socket.emit('connected')
+})
+
+server.listen(4000, () => {
 	console.log('Server running on http://localhost:4000/')
 })
