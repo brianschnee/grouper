@@ -11,8 +11,8 @@ const io = new Server(server, {
 })
 
 io.on('connection', (socket) => {
-	console.log('Connected!', socket.id)
-	socket.emit('connected')
+	console.log(`Connected with ${socket.id}`)
+	socket.emit('connected', socket.id)
 })
 
 server.listen(4000, () => {
